@@ -32,15 +32,13 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: ".next package.json package-lock.json node_modules"
           target: "/var/www/devspark"
-            exclude: |
-                .git
-                .github
-                README.md
-                composer.json
-                composer.lock
-                tests
-                docs
-                wordpress-backend
+          exclude: |
+            .git
+            .github
+            README.md
+            tests
+            docs
+            wordpress-backend
 
       - name: SSH & Restart PM2
         uses: appleboy/ssh-action@v0.1.6
